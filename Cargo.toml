@@ -1,0 +1,3 @@
+[workspace]
+members = ["alqs", "alqs_cli", "alqs_db", "alqs_shared"]
+resolver = "2"

@@ -1,0 +1,13 @@
+[package]
+name = "alqs_cli"
+version = "0.1.0"
+edition = "2021"
+license-file = "LICENSE"
+
+[[bin]]
+name = "alqs"
+path = "src/main.rs"
+
+[dependencies]
+alqs_shared = { path = "../alqs_shared" }
+clap = { version = "4.4.11", features = ["derive"] }
