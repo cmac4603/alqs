@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.alqs.status";
+option java_outer_classname = "StatusProto";
+
+package status;
+
+service StatusService {
+  rpc CheckStatus (StatusRequest) returns (StatusReply) {}
+}
+
+message StatusRequest {}
+
+message StatusReply {
+  string status = 1;
+}
