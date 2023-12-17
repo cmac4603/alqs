@@ -1,8 +1,9 @@
 [package]
 name = "alqs_db"
+description = "ALQS database"
 version = "0.1.0"
 edition = "2021"
-license-file = "LICENSE"
+license-file = "../LICENSE"
 
 [dependencies]
-alqs_shared = { path = "../alqs_shared" }
+alqs_shared = "0.1"
