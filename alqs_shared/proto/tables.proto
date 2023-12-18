@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.alqs.tables";
+option java_outer_classname = "TablesProto";
+
+package tables;
+
+service TablesService {
+  rpc CreateTable (CreateTableRequest) returns (CreateTableReply) {}
+}
+
+message Error {
+  string message = 1;
+}
+
+enum DataType {
+  STRING = 0;
+  INT = 1;
+  FLOAT = 2;
+  BOOL = 3;
+}
+
+message Column {
+    string name = 1;
+    DataType type = 2;
+    bool nullable = 3;
+    bool primaryKey = 4;
+}
+
+message CreateTableRequest {
+    string name = 1;
+    repeated Column columns = 2;
+}
+
+message CreateTableReply {
+    bool ok = 1;
+    repeated Error errors = 50000;
+}
