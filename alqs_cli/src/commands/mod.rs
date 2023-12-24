@@ -1,6 +1,5 @@
 use alqs_shared::tables::Column;
-use clap::{Parser, Subcommand};
-use std::path::PathBuf;
+use clap::Subcommand;
 
 mod status;
 mod tables;
@@ -9,12 +8,14 @@ mod tables;
 pub(crate) struct AlqsTableColumn(Column);
 
 fn parse_column(input: &str) -> Result<AlqsTableColumn, std::io::Error> {
-    Ok(AlqsTableColumn(Column {
-        name: "test".to_string(),
-        nullable: false,
-        primary_key: false,
-        r#type: 1,
-    }))
+    let col_data = input.split(',').collect::<Vec<&str>>();
+    let column = Column {
+        name: col_data[0].to_string(),
+        nullable: col_data[1].parse::<bool>().unwrap(),
+        primary_key: col_data[2].parse::<bool>().unwrap(),
+        r#type: col_data[3].parse::<i32>().unwrap(),
+    };
+    return Ok(AlqsTableColumn(column));
 }
 
 /// ALQS CLI commands
@@ -34,8 +35,7 @@ impl Command {
     pub(crate) async fn run(&self) -> Result<String, Box<dyn std::error::Error>> {
         match self {
             Command::CreateTable { name, column } => {
-                // let table_command = TableCommand::parse();
-                // table_command.run().await
+                dbg!(column);
                 Ok("Table command".to_string())
             }
             Command::Status => status::status().await,
