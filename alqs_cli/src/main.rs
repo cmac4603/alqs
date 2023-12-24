@@ -4,6 +4,7 @@ use clap::Parser;
 mod commands;
 
 #[derive(Parser, Debug)]
+#[command(author, version, about)]
 struct Cli {
     #[command(subcommand)]
     command: commands::Command,

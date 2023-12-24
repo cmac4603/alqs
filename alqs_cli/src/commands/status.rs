@@ -4,7 +4,7 @@ use alqs_shared::status::StatusRequest;
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub(crate) async fn status() -> Result<String, Box<dyn std::error::Error>> {
-    let mut client = StatusServiceClient::connect("http://[::1]:50051").await?;
+    let mut client = StatusServiceClient::connect("http://[::1]:55555").await?;
 
     let request = alqs_shared::tonic::Request::new(StatusRequest {});
 

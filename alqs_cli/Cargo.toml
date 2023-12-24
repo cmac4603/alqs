@@ -10,5 +10,6 @@ name = "alqs"
 path = "src/main.rs"
 
 [dependencies]
-alqs_shared = "0.1"
+alqs_shared = { path = "../alqs_shared" }
+# alqs_shared = "0.1"
 clap = { version = "4.4.11", features = ["derive"] }

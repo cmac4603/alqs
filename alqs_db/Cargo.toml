@@ -6,4 +6,5 @@ edition = "2021"
 license-file = "../LICENSE"
 
 [dependencies]
-alqs_shared = "0.1"
+alqs_shared = { path = "../alqs_shared" }
+# alqs_shared = "0.1"
